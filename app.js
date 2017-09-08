@@ -1,7 +1,7 @@
-var express = require("express");
-var app = express();
-var bodyParser = require("body-parser");
-var mongoose = require("mongoose");
+var express = require("express"),
+    app = express(),
+    bodyParser = require("body-parser"),
+    mongoose = require("mongoose");
 
 mongoose.connect("mongodb://localhost/yelpcamp");
 
@@ -10,7 +10,8 @@ app.set("view engine", "ejs");
 
 var campSchema = new mongoose.Schema({
     name: String,
-    image: String
+    image: String,
+    description: String
 });
 
 var Campground = mongoose.model("campground", campSchema);
@@ -28,7 +29,7 @@ app.get("/campgrounds", function(req, res){
         }
         
         else {
-            res.render("campgrounds", {campgrounds: campgrounds});
+            res.render("index", {campgrounds: campgrounds});
         }
     });
     
@@ -37,7 +38,8 @@ app.get("/campgrounds", function(req, res){
 app.post("/campgrounds", function(req, res){
     var name = req.body.name;
     var image = req.body.image;
-    var newCampground = {name: name, image: image};
+    var description = req.body.description;
+    var newCampground = {name: name, image: image, description: description};
     
     Campground.create(newCampground, function(err, newlyCreated){
         if (err) {
@@ -53,8 +55,24 @@ app.post("/campgrounds", function(req, res){
 });
 
 app.get("/campgrounds/new", function(req, res){
-    res.render("new.ejs");
+    res.render("new");
 });
+
+app.get("/campgrounds/:id", function(req, res){
+    
+    Campground.findById(req.params.id, function(err, foundCampground){
+        if(err){
+            console.log(err);
+        }
+        
+        else {
+            res.render("show", {campground: foundCampground});
+        }
+        
+    });
+    
+});
+
 
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("YelpCamp server has started");
