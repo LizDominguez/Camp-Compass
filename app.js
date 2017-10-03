@@ -7,6 +7,7 @@ mongoose.connect("mongodb://localhost/yelpcamp");
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
+app.use(express.static("public"));
 
 var campSchema = new mongoose.Schema({
     name: String,

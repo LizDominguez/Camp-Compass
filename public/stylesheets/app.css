@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Germania+One|Fjalla+One|Roboto');
+
+body {
+  background-color: #fffacf;
+}
+
+nav { 
+  background-color: #486621 !important;
+}
+
+nav a {
+  color: #2e4215 !important;
+  font: 1.5em 'Germania One';
+}
+
+.navbar-brand {
+  color: #2e4215 !important;
+  font: 1.8em 'Germania One';
+  text-shadow: 1px 1px 1px #5b8429;
+  margin-top: -5px;
+}
+
+.navbar-brand:hover {
+  color: #5b8429 !important;
+  text-shadow: 1px 1px 1px #2e4215;
+}
+
+
+header {
+  background-color: #e0dda3 !important;
+  font-family: 'Fjalla One';
+  color: #fffacf !important;
+}
+
+h1 {
+  font: 3em 'Germania One';
+  color: #486621 !important;
+  margin: 5px 0px 10px 0px;
+  text-transform: uppercase;
+}
+
+.logo {
+  width: 300px;
+}
+
+a {
+  font-family: 'Fjalla One';
+  color: #fffacf;
+  text-transform: uppercase;
+}
+
+a:hover {
+  background-color: #e35252;
+  color: #fffacf !important;
+}
+
+.btn {
+  
+  background-color: #486621;
+  
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.5), inset 0 -2px 0 rgba(0,0,0,.25), inset 0 -3px 0 rgba(255,255,255,.2), 0 1px 0 rgba(0,0,0,.1);
+  -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.5), inset 0 -2px 0 rgba(0,0,0,.25), inset 0 -3px 0 rgba(255,255,255,.2), 0 1px 0 rgba(0,0,0,.1);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.5), inset 0 -2px 0 rgba(0,0,0,.2), inset 0 0px 0 rgba(255,255,255,.2), 0 1px 0 rgba(0,0,0,.1);
+}
+
+h3 {
+  font: 2.5em 'Fjalla One';
+  color: #486621 !important;
+  margin: 30px 0px 30px 0px;
+}
+
+h4 {
+  font: 1.5em 'Germania One';
+  color: #486621 !important;
+  margin: 10px 0px 10px 0px;
+}
+
+footer {
+  margin-top: 50px;
+  background-color: #486621;
+  padding: 50px;
+  color: #2e4215; 
+}
