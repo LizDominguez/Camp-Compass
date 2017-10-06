@@ -9,12 +9,10 @@ var express = require("express"),
 
 
 mongoose.connect("mongodb://localhost/yelpcamp");
-seedDB();
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-
+seedDB();
 
 app.get("/", function(req, res){
     res.render("landing");
@@ -28,7 +26,7 @@ app.get("/campgrounds", function(req, res){
         }
         
         else {
-            res.render("index", {campgrounds: campgrounds});
+            res.render("campgrounds/index", {campgrounds: campgrounds});
         }
     });
     
@@ -54,7 +52,7 @@ app.post("/campgrounds", function(req, res){
 });
 
 app.get("/campgrounds/new", function(req, res){
-    res.render("new");
+    res.render("campgrounds/new");
 });
 
 app.get("/campgrounds/:id", function(req, res){
@@ -65,11 +63,45 @@ app.get("/campgrounds/:id", function(req, res){
         }
         
         else {
-            res.render("show", {campground: foundCampground});
+            res.render("campgrounds/show", {campground: foundCampground});
         }
         
     });
     
+});
+
+
+                    /* Comment Routes */
+
+app.get("/campgrounds/:id/comments/new", function(req, res){
+    Campground.findById(req.params.id, function(err, campground){
+        if (err){
+            console.log(err);
+        }
+        else {
+            res.render("comments/new", {campground: campground});
+        }
+    });
+});
+
+app.post("/campgrounds/:id/comments", function(req, res){
+    Campground.findById(req.params.id, function(err, campground){
+        if (err){
+            console.log(err);
+        }
+        else {
+            Comment.create(req.body.comment, function(err, comment){
+                if(err){
+                    console.log(err);
+                }
+                else {
+                    campground.comments.push(comment);
+                    campground.save();
+                    res.redirect("/campgrounds/" + campground._id);
+                }
+            });
+        }
+    });
 });
 
 
