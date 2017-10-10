@@ -30,6 +30,7 @@ header {
   background-color: #e0dda3 !important;
   font-family: 'Fjalla One';
   color: #fffacf !important;
+  padding: 40px 0px 0px 0px !important;
 }
 
 h1 {
@@ -40,7 +41,8 @@ h1 {
 }
 
 .logo {
-  width: 300px;
+  width: 100%;
+  margin-top: 20px;
 }
 
 a {

@@ -1,7 +1,7 @@
 var express     = require("express"),
-    router      = express.Router(),
+    router      = express.Router({mergeParams: true}),
     Campground  = require("../models/campground"),
-    Comment  = require("../models/comments");
+    Comment     = require("../models/comment");
 
 /* Comment Routes */
 
@@ -27,6 +27,9 @@ router.post("/campgrounds/:id/comments", isLoggedIn, function(req, res){
                     console.log(err);
                 }
                 else {
+                    comment.author.id = req.user._id;
+                    comment.author.username = req.user.username;
+                    comment.save();
                     campground.comments.push(comment);
                     campground.save();
                     res.redirect("/campgrounds/" + campground._id);
