@@ -53,7 +53,7 @@ function seedDB () {
                 console.log("added camps");
                 
                 /* Create Comments*/
-                
+                /*
                 Comment.create(
                     {
                         text: "This place is great, but I wish there was internet",
@@ -67,6 +67,8 @@ function seedDB () {
                             campground.save();
                         }
                     });
+                    
+                    */
             }
             
         });

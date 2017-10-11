@@ -73,28 +73,32 @@ router.get("/campgrounds/:id/edit", middleware.checkCampgroundOwnership, functio
 });
 
 /*********** Update Camp*********/
-router.put("/campgrounds/:id", function(req, res){
-    Campground.findByIdAndUpdate(req.params.id, req.body.campground,function(err, updatedCampground){
-        if (err) {
-            res.redirect("/campgrounds");
-        }
-        else {
-            res.render("/campgrounds/" + req.params.id);
-        }
+router.put("/campgrounds/:id",middleware.checkCampgroundOwnership, function(req, res){
+    // find and update the correct campground
+    Campground.findByIdAndUpdate(req.params.id, req.body.campground, function(err, updatedCampground){
+       if(err){
+           res.redirect("/campgrounds");
+       } 
+       
+       else {
+           //redirect somewhere(show page)
+           res.redirect("/campgrounds/" + req.params.id);
+       }
     });
 });
 
 
 /*********** Delete Camp*********/
-router.delete("/campgrounds/:id", function(req, res){
-    Campground.findByIdAndRemove(req.params.id,function(err){
-        if (err) {
-            res.redirect("/campgrounds");
-        }
-        else {
-            res.render("/campgrounds/" + req.params.id);
-        }
-    });
+router.delete("/campgrounds/:id",middleware.checkCampgroundOwnership, function(req, res){
+   Campground.findByIdAndRemove(req.params.id, function(err){
+      if(err){
+          res.redirect("/campgrounds");
+      } 
+      
+      else {
+          res.redirect("/campgrounds");
+      }
+   });
 });
 
 
