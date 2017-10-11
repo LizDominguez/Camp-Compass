@@ -53,8 +53,9 @@ a {
 }
 
 a:hover {
-  color: #e35252 !important;
   text-decoration: none;
+  filter: brightness(60%);
+  color: #486621 !important;
 }
 
 .btn {
@@ -72,12 +73,13 @@ a:hover {
   box-shadow: inset 0 1px 0 rgba(255,255,255,.5), inset 0 -2px 0px rgba(0,0,0,.2), inset 0 0px 0 rgba(255,255,255,.2);
 }
 
-.btn:hover, .btn:active {
+.btn:hover, .btn:active, .btn:focus {
   filter: brightness(90%);
   color: #fffacf !important;
   -webkit-box-shadow: inset 0 0px 2px rgba(0,0,0,.2), inset 0 -3px 0 rgba(255,255,255,.2);
   -moz-box-shadow: inset 0 0px 2px rgba(0,0,0,.2), inset 0 -3px 0 rgba(255,255,255,.2);
   box-shadow: inset 0 0px 2px rgba(0,0,0,.2), inset 0 0px 0 rgba(255,255,255,.2);
+  outline: none !important;
 }
 
 .edit-btn {

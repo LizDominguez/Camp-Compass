@@ -20,10 +20,19 @@
                 <li><a href="/register">Sign Up</a></li>
             <% } else { %>
                 <li><a href="#"><%= currentUser.username %></a></li>
-                <li><a href="/logout">Log Out</a></li>
+                <li><a href="/logout">Logout</a></li>
             <% } %>   
             </ul>
         </div>
     </div>
 </nav>
-        
+ 
+<% if(error && error.length > 0) {%>    
+    <div class="container">
+    <div class="alert alert-danger"><strong>Error!</strong> <%= error %></div>
+    </div>
+<% } else if (success && success.length > 0) {%>
+    <div class="container">
+    <div class="alert alert-success"> <strong>Success!</strong> <%= success %></div>
+    </div>
+<% } %>
