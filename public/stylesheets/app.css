@@ -63,7 +63,7 @@ a:hover {
   font-family: 'Fjalla One';
   color: #fffacf;
   text-transform: uppercase;
-  
+  outline: none !important;
   transition: all 0.2s ease 0s;
   
   background-color: #486621;
@@ -76,10 +76,10 @@ a:hover {
 .btn:hover, .btn:active, .btn:focus {
   filter: brightness(90%);
   color: #fffacf !important;
+  background-color: #486621;
   -webkit-box-shadow: inset 0 0px 2px rgba(0,0,0,.2), inset 0 -3px 0 rgba(255,255,255,.2);
   -moz-box-shadow: inset 0 0px 2px rgba(0,0,0,.2), inset 0 -3px 0 rgba(255,255,255,.2);
   box-shadow: inset 0 0px 2px rgba(0,0,0,.2), inset 0 0px 0 rgba(255,255,255,.2);
-  outline: none !important;
 }
 
 .edit-btn {
