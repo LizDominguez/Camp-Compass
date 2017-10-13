@@ -42,18 +42,19 @@ function seedDB () {
     
     console.log("removed");
     
+    
         /* Add Campgrounds*/
     
-    data.forEach(function(seed){
+    /*data.forEach(function(seed){
         Campground.create(seed, function(err, campground){
             if (err){
                 console.log("error");
             }
             else {
                 console.log("added camps");
+      
+                //Create Comments
                 
-                /* Create Comments*/
-                /*
                 Comment.create(
                     {
                         text: "This place is great, but I wish there was internet",
@@ -68,11 +69,11 @@ function seedDB () {
                         }
                     });
                     
-                    */
+                    
             }
             
         });
-    });
+    });*/
     
     
     });
